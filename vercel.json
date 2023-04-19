@@ -9,5 +9,5 @@
             "use": "@vercel/node"
         }
     ],
-    "rewrites": [{ "source": "/tracks/(.*)", "destination": "/tracks"}]
+    "rewrites": [{ "source": "/(.*)", "destination": "/"}]
 }
