@@ -6,13 +6,14 @@ import { ObjectId } from 'mongoose';
 import { AddTrackUserDto } from './dto/add-track-user.dto';
 import { RemoveTrackUserDto } from './dto/remove-track-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-// import { ValidationPipe } from 'src/pipes/validation.pipe';
+//@ts-ignore
+import { ValidationPipe } from 'src/pipes/validation.pipe.ts';
 
 
 @Controller('/users')
 export class UsersController {
     constructor(private usersService: UsersService ) {}
-    // @UsePipes(ValidationPipe)
+    @UsePipes(ValidationPipe)
     @Post()
     create(@Body() dto: CreateUserDto) {
         return this.usersService.create(dto)
