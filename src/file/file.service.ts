@@ -18,7 +18,12 @@ export class FileService{
             console.log(__dirname, fileName, filePath)
             if(!fs.existsSync(filePath)) {
                 console.log('before mkdir')
-                fs.mkdirSync(filePath, {recursive: true})
+                // fs.mkdirSync(filePath, {recursive: true})
+                fs.mkdir(filePath, {recursive: true}, (err) => {
+                    if (err) {
+                        return console.log(err)
+                    }
+                })
                 console.log('after mkdir')
             }
             console.log(file.buffer)
