@@ -7,8 +7,8 @@ const start = async () => {
     try {
         const PORT = process.env.PORT || 5000
         const app = await NestFactory.create(AppModule)
-        app.use(json({limit: '100mb'}))
-        app.use(urlencoded({limit: '100mb', extended: true}))
+        app.use(json({limit: '1000mb'}))
+        app.use(urlencoded({limit: '1000mb', extended: true}))
         app.enableCors({
             origin: [
               'http://localhost:3000',

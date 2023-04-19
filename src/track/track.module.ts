@@ -1,11 +1,10 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { TrackController } from "./track.controller";
 import { TrackService } from "./track.service";
 import { MongooseModule } from '@nestjs/mongoose'
 import { Track, TrackSchema } from "./schemas/track.schema";
 import { Comment, CommentSchema } from "./schemas/comment.schema";
 import { FileService } from "src/file/file.service";
-import { Album, AlbumSchema } from "src/album/album.schema";
 
 @Module({
     imports: [
@@ -15,4 +14,5 @@ import { Album, AlbumSchema } from "src/album/album.schema";
     controllers: [TrackController], 
     providers: [TrackService, FileService, FileService],
 })
+
 export class TrackModule {}
