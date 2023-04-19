@@ -1,7 +1,7 @@
 {
     "version": 2,
     "env": {
-        "MONGO_URI": "mongodb+srv://user:123@cluster0.69krlvw.mongodb.net/?retryWrites=true&w=majority"
+        "MONGODB_URI": "mongodb+srv://user:123@cluster0.69krlvw.mongodb.net/?retryWrites=true&w=majority"
     },
     "builds": [
         {
@@ -11,7 +11,7 @@
     ],
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "/tracks/(.*)",
             "dest": "src/main.ts",
             "methods": [
                 "GET",
