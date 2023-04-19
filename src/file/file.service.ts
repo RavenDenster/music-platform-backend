@@ -27,7 +27,12 @@ export class FileService{
                 console.log('after mkdir')
             }
             console.log(file.buffer)
-            fs.writeFileSync(path.resolve(filePath, fileName), file.buffer)
+            // fs.writeFileSync(path.resolve(filePath, fileName), file.buffer)
+            fs.writeFile(path.resolve(filePath, fileName), file.buffer, (err) => {
+                if (err) {
+                    return console.log(err)
+                }
+            })
             console.log(type + '/' + fileName)
             return type + '/' + fileName
         } catch (e) {
