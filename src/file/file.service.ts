@@ -17,10 +17,13 @@ export class FileService{
             const filePath = path.resolve(__dirname, '..', 'static', type)
             console.log(__dirname, fileName, filePath)
             if(!fs.existsSync(filePath)) {
+                console.log('before mkdir')
                 fs.mkdirSync(filePath, {recursive: true})
+                console.log('after mkdir')
             }
+            console.log(file.buffer)
             fs.writeFileSync(path.resolve(filePath, fileName), file.buffer)
-
+            console.log(type + '/' + fileName)
             return type + '/' + fileName
         } catch (e) {
             throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
