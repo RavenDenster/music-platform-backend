@@ -11,7 +11,7 @@
     ],
     "routes": [
         {
-            "src": "/tracks/(.*)",
+            "src": "/(.*)",
             "dest": "src/main.ts",
             "methods": [
                 "GET",
@@ -20,5 +20,6 @@
                 "DELETE"
             ]
         }
-    ]
+    ],
+    "rewrites": [{ "source": "/tracks/(.*)", "destination": "/tracks"}]
 }
