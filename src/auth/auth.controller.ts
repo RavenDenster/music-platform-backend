@@ -2,8 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req, Res, Uploa
 import { Request, Response } from 'express';
 import { CreateUserDto } from 'src/users/dto/create-users.dto';
 import { AuthService } from './auth.service';
-//@ts-ignore
-import { ValidationPipe } from 'src/pipes/validation.pipe.ts';
+import { ValidationPipe } from '../pipes/validation.pipe';
 
 @Controller('/auth')
 export class AuthController {

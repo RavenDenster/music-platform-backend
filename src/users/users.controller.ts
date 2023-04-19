@@ -6,8 +6,7 @@ import { ObjectId } from 'mongoose';
 import { AddTrackUserDto } from './dto/add-track-user.dto';
 import { RemoveTrackUserDto } from './dto/remove-track-user.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-//@ts-ignore
-import { ValidationPipe } from 'src/pipes/validation.pipe.ts';
+import { ValidationPipe } from '../pipes/validation.pipe';
 
 
 @Controller('/users')
