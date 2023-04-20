@@ -6,12 +6,7 @@
     "builds": [
         {
             "src": "src/main.ts",
-            "use": "@vercel/node",
-            "config": {
-                "serverFiles": [
-                  "src/pipes/ipx.pipe.ts"
-                ]
-              }
+            "use": "@vercel/node"
         }
     ],
     "routes": [
