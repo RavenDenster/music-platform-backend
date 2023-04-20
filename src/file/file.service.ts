@@ -44,7 +44,12 @@ export class FileService{
         try {
            const audioOrImage = fileName.split('/').shift()
            const nameFile = fileName.split('/').pop()
-           fs.unlinkSync(path.join(__dirname, '..', 'static', audioOrImage, nameFile))
+        //    fs.unlinkSync(path.join(__dirname, '..', 'static', audioOrImage, nameFile))
+        fs.unlink(path.join(__dirname, '..', 'static', audioOrImage, nameFile), (err) => {
+            if (err) {
+                return console.log(err)
+            }
+        })
         } catch (e) {
             throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR)
         }     
