@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core"
 import { AppModule } from "./app.module"
-import cookieParser from 'cookie-parser';
+import * as cookieParser from 'cookie-parser';
 
 
 const start = async () => {
@@ -9,6 +9,7 @@ const start = async () => {
         const app = await NestFactory.create(AppModule)
         app.enableCors({
             origin: [
+              'https://music-platform-frontend-zeta.vercel.app',
               'http://localhost:3000',
               'http://example.com',
               'http://www.example.com',
