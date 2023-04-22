@@ -16,7 +16,6 @@ export class AuthController {
         return data
     }
 
-    @Header('Access-Control-Allow-Origin', '*')
     @Post('/login')
     async login(@Body() userDto: CreateUserDto, @Res({ passthrough: true }) response: Response) {
        const data = await this.authService.login(userDto)
