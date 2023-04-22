@@ -39,7 +39,9 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "serve": "^14.2.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "webpack": "^5.80.0",
+    "webpack-dev-server": "^4.13.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
