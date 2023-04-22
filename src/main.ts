@@ -10,7 +10,6 @@ const start = async () => {
         app.enableCors({
             origin: [
               'https://music-platform-frontend-zeta.vercel.app',
-              'http://localhost:3000',
               'http://example.com',
               'http://www.example.com',
               'http://app.example.com',
