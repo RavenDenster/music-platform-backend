@@ -8,14 +8,8 @@ const start = async () => {
         const app = await NestFactory.create(AppModule)
         app.enableCors({
             origin: [
-              // 'https://music-platform-frontend-zeta.vercel.app',
+              'https://music-platform-frontend-zeta.vercel.app',
               'http://localhost:3000/',
-              'http://example.com',
-              'http://www.example.com',
-              'http://app.example.com',
-              'https://example.com',
-              'https://www.example.com',
-              'https://app.example.com',
             ],
             methods: ["GET", "POST", "PUT", "DELETE"],
             credentials: true,
