@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req, Res, UploadedFiles, UseInterceptors, UsePipes } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Header, Param, Post, Put, Query, Req, Res, UploadedFiles, UseInterceptors, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { CreateUserDto } from 'src/users/dto/create-users.dto';
 import { AuthService } from './auth.service';
@@ -16,6 +16,7 @@ export class AuthController {
         return data
     }
 
+    @Header('Access-Control-Allow-Origin', '*')
     @Post('/login')
     async login(@Body() userDto: CreateUserDto, @Res({ passthrough: true }) response: Response) {
        const data = await this.authService.login(userDto)
