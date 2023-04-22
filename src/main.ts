@@ -25,7 +25,7 @@ const start = async () => {
         app.use(cookieParser())
         await app.listen(PORT, () => console.log(`server started on PORT ${PORT}`))
     } catch (e) { 
-        console.log(e)
+        console.log(e) 
     }
 }
 // "compilerOptions": {
