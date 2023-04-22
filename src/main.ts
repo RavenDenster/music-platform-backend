@@ -19,9 +19,20 @@ const allowCors = fn => async (req, res) => {
   return await fn(req, res)
 }
 
-const handler = (req, res) => {
-  const d = new Date()
-  res.end(d.toString())
+const handler = async (req, res) => {
+  const PORT = process.env.PORT || 5000
+  const app = await NestFactory.create(AppModule)
+  app.enableCors({
+      origin: [
+        'https://music-platform-frontend-zeta.vercel.app',
+        'http://localhost:3000/',
+      ],
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+  })
+  app.use(allowCors(handler))
+  app.use(cookieParser())
+  await app.listen(PORT, () => console.log(`server started on PORT ${PORT}`))
 }
 
 const start = async () => {
