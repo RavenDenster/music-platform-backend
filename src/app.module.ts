@@ -23,4 +23,16 @@ import { AuthModule } from "./auth/auth.module";
         AuthModule,
     ]
 })
+    // "routes": [
+    //     {
+    //         "src": "/(.*)",
+    //         "dest": "src/main.ts",
+    //         "methods": [
+    //             "GET",
+    //             "POST",
+    //             "PUT",
+    //             "DELETE"
+    //         ]
+    //     }
+    // ],
 export class AppModule {}
