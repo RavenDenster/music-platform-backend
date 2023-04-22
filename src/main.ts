@@ -30,5 +30,5 @@ const start = async () => {
 }
 // "compilerOptions": {
   //   "deleteOutDir": true
-  // }
+  // } 
 start()
