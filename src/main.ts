@@ -2,6 +2,11 @@ import { NestFactory } from "@nestjs/core"
 import { AppModule } from "./app.module"
 import cookieParser from 'cookie-parser';
 const cors = require('cors');
+const corsOptions = {
+  origin:'https://music-platform-frontend-zeta.vercel.app', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
 
 const start = async () => {
     try {
@@ -21,7 +26,7 @@ const start = async () => {
         //     methods: ["GET", "POST"],
         //     credentials: true,
         //   })
-        app.use(cors());
+        app.use(cors(corsOptions));
         app.use(cookieParser())
         await app.listen(PORT, () => console.log(`server started on PORT ${PORT}`))
     } catch (e) { 
