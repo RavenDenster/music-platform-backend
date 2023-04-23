@@ -8,7 +8,7 @@ import { ValidationPipe } from '../pipes/validation.pipe';
 export class AuthController {
     constructor(private authService: AuthService ) {}
 
-    @Get('/refresh')
+    @Post('/refresh')
     async refresh(@Req() request: Request, @Res({ passthrough: true }) response: Response) {
         const token = request.cookies.token
         const data = await this.authService.refresh(token)

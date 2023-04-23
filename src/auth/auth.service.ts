@@ -47,7 +47,7 @@ export class AuthService {
             throw new HttpException('Пользователь', HttpStatus.BAD_REQUEST)
         }
         const user = await this.userModel.findById(userData.id)
-        console.log(user)
+        // console.log(user)
         const tokens = this.generateToken(user)
         // console.log(tokens)
         await this.saveToken((await tokens).user, (await tokens).token)
@@ -84,7 +84,7 @@ export class AuthService {
 
     async saveToken(userId, token: string) {
         const tokenData = await this.authModel.findOne({userId: userId})
-        console.log(tokenData)
+        // console.log(tokenData)
         if(tokenData) {
             tokenData.token = token
             return tokenData.save()
