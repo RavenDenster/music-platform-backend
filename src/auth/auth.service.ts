@@ -34,22 +34,19 @@ export class AuthService {
         return dataAndToken
     }
 
-    async refresh(token: string) {
-        // console.log(token)        
+    async refresh(token: string) {      
         if(!token) {
             throw new HttpException('Пользователь не найден', HttpStatus.BAD_REQUEST)
         }
         const userData = this.validateToken(token)
-        console.log(userData)
+        // console.log(userData)
         const tokenFromDb = await this.findToken(token)
-        console.log(tokenFromDb)
-        if(!userData || !tokenFromDb) {
+        // console.log(tokenFromDb) || !tokenFromDb
+        if(!userData) { 
             throw new HttpException('Пользователь', HttpStatus.BAD_REQUEST)
         }
         const user = await this.userModel.findById(userData.id)
-        // console.log(user)
         const tokens = this.generateToken(user)
-        // console.log(tokens)
         await this.saveToken((await tokens).user, (await tokens).token)
         return tokens
     } 
